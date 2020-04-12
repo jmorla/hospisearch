@@ -1,0 +1,7 @@
+{
+  "name": "hospisearch",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
