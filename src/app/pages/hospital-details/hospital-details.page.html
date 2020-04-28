@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles del Hospital</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+      <ion-item *ngIf="hospital" lines="none">
+          <ion-img [src]="hospital.photoUrl"></ion-img>
+        </ion-item>
+        <ion-item lines="none">
+          <h1>{{hospital.name}}</h1>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-text color="success"><ion-icon name="hourglass-outline"></ion-icon>{{hospital.schedule}}</ion-text>
+        </ion-item>
+        <ion-item lines="none">
+         <span><ion-icon name="location-outline"></ion-icon> {{hospital.address}}</span>
+        </ion-item>
+  </ion-item-group>
+  <ion-item-divider></ion-item-divider>
+  <ion-item-group>
+    <ion-item>
+        <ion-icon name="star-outline"></ion-icon><h4>Servicios Expecializados</h4>
+    </ion-item>
+    <ion-item-group>
+        <ion-list>
+          <ion-item *ngFor="let service of hospital.services">
+            {{ service }}
+          </ion-item>
+        </ion-list>
+      </ion-item-group>
+  </ion-item-group>
+  <ion-item-divider></ion-item-divider>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+          <ion-icon name="calendar-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

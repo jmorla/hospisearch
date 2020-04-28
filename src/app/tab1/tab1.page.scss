@@ -1,3 +1,11 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
+
+.available {
+  color: #005200;
+}
+
+.unavailable {
+  color: rgb(124, 0, 0);
+}

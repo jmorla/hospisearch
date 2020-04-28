@@ -1,17 +1,27 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title>Busqueda</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar (ionChange)="onSearchHospital()" #search></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list>
+    <ion-item *ngFor="let hospital of hospitalDatasource" button [routerLink]="['/hospital-details', hospital.id]">
+      <ion-avatar slot="start" size="large">
+        <ion-img [src]="hospital.photoUrl"></ion-img>
+      </ion-avatar>
+      <ion-label>
+      <h2>{{hospital.name}}</h2>
+        <h3 [ngClass]="{'available': hospital.open, 'unavailable': !hospital.open}">
+          <ion-icon name="hourglass-outline"></ion-icon>{{hospital.schedule}}
+        </h3>
+        <p>
+          <ion-icon name="location-outline"></ion-icon> {{hospital.address}}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,17 +1,17 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
+    <ion-title slot="center">
+      Mis citas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="container">
+    <strong><ion-icon name="calendar-outline"></ion-icon> Sin citas</strong>
+    <p>Usted no ha pautado ninguna cita todavia</p>
+    <hr>
+    <p>Presenta usted algun malestar que pueda relacionarse a COVID-19?</p>
+    <ion-button>Saber que hacer</ion-button>
+  </div>
 </ion-content>
