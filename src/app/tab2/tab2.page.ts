@@ -1,4 +1,6 @@
+import { APPOINTMENTS_DATASOURCE } from './../core/appointment.model';
 import { Component } from '@angular/core';
+import { Appointment } from '../core/appointment.model';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  appointments: Appointment[] = APPOINTMENTS_DATASOURCE;
 
+  constructor() {}
 }

@@ -1,17 +1,45 @@
-<ion-header [translucent]="false" class="ion-no-border">
-  <ion-toolbar>
-    <ion-title slot="center">
-      Mis citas
-    </ion-title>
-  </ion-toolbar>
+<ion-header translucent *ngIf="appointments && appointments.length">
+    <ion-toolbar>
+        <ion-title>Mis citas Programas</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="container">
-    <strong><ion-icon name="calendar-outline"></ion-icon> Sin citas</strong>
-    <p>Usted no ha pautado ninguna cita todavia</p>
-    <hr>
-    <p>Presenta usted algun malestar que pueda relacionarse a COVID-19?</p>
-    <ion-button>Saber que hacer</ion-button>
-  </div>
+<ion-content [fullscreen]="true" *ngIf="appointments && !appointments.length">
+    <div class="container">
+        <strong><ion-icon name="calendar-outline"></ion-icon> Sin citas</strong>
+        <p>Usted no ha pautado ninguna cita todavia</p>
+        <hr />
+        <p>Presenta usted algun malestar que pueda relacionarse a COVID-19?</p>
+        <ion-button>Saber que hacer</ion-button>
+    </div>
+</ion-content>
+<ion-content *ngIf="appointments && appointments.length">
+    <ion-list>
+        <ion-item *ngFor="let appointment of appointments">
+            <ion-avatar slot="start">
+                <ion-img [src]="appointment.hospital.photoUrl"></ion-img>
+            </ion-avatar>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                    <ion-label>
+                        <h2>{{appointment.hospital.name}}</h2>
+                        <p>{{appointment.hospital.address}}</p>
+                        <p>Especialidad: {{appointment.doctor.specialty}}</p>
+                        <h3>Fecha: {{appointment.date | date: 'dd-MM-yyyy'}} a las {{appointment.time | date: 'hh:mm a'}}</h3>
+                    </ion-label>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-chip>
+                        <ion-avatar>
+                            <img [src]="appointment.doctor.photoUrl" />
+                        </ion-avatar>
+                        <ion-label>{{appointment.doctor.fullName}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-icon slot="end" name="close-outline">Cancelar</ion-icon>
+        </ion-item>
+    </ion-list>
 </ion-content>

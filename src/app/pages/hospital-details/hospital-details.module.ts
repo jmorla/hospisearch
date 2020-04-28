@@ -1,3 +1,4 @@
+import { DialogsModule } from './../../dialogs/dialogs.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { HospitalDetailsPage } from './hospital-details.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    HospitalDetailsPageRoutingModule
+    HospitalDetailsPageRoutingModule,
+    DialogsModule
   ],
   declarations: [HospitalDetailsPage]
 })

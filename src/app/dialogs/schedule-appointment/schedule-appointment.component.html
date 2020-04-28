@@ -1,0 +1,54 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Programar cita</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item-group *ngIf="!doctor">
+    <ion-item>
+      <span><strong>Doctor</strong></span>
+      <ion-searchbar #search showCancelButton="always" (ionChange)="onSearchDoctor()"></ion-searchbar>
+    </ion-item>
+    <ion-list>
+      <ion-item button *ngFor="let doctor of doctors" (click)="onSelectedDoctor(doctor)">
+        <ion-avatar slot="start">
+          <img [src]="doctor.photoUrl">
+        </ion-avatar>
+        <ion-label>
+          <h3>{{doctor.fullName}}</h3>
+          <p>{{doctor.specialty}}</p>
+          <p>Horario: de {{doctor.schedule.start}} a {{doctor.schedule.end}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+  <ion-item-group *ngIf="doctor">
+    <ion-item>
+      <ion-label>Doctor Seleccionado:</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="doctor.photoUrl">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{doctor.fullName}}</h3>
+        <p>{{doctor.specialty}}</p>
+        <p>Horario: de {{doctor.schedule.start}} a {{doctor.schedule.end}}</p>
+      </ion-label>
+      <ion-icon name="close-outline" slot="end" button (click)="doctor = null"></ion-icon>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-item >
+        <ion-label>Fecha de la cita</ion-label>
+        <ion-datetime value="2020-04-19" placeholder="Seleccione fecha" [formControl]="date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hora de la cita</ion-label>
+      <ion-datetime display-format="h:mm A" picker-format="h:mm A" placeholder="Seleccione hora" [formControl]="time"></ion-datetime>
+    </ion-item>
+    <ion-button color="primary" expand="full" (click)="onCreateAppointment()" >Pautar cita</ion-button>
+  </ion-item-group>
+</ion-content>

@@ -1,11 +1,41 @@
 <ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Configuration
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <ion-item-group>
+    <ion-item lines="none" style="margin-top: 10px;">
+      <ion-thumbnail style="width: 100px; height: 100px; margin-left: auto; margin-right: auto;">
+        <img src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"
+          style="border-radius: 50%;">
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Nombres</ion-label>
+      <ion-input value="Jorge"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input value="Morla"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Cedula</ion-label>
+      <ion-input value="402-2333332-1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefono</ion-label>
+      <ion-input value="809-223-3232"></ion-input>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-button expand="full" [routerLink]="['/tabs', 'tab2']">Actualizar perfil</ion-button>
+    <ion-button expand="full" color="light" [routerLink]="['/login']">Cerrar sesion</ion-button>
+  </ion-item-group>
 </ion-content>
