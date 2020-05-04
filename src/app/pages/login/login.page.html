@@ -2,20 +2,25 @@
   <ion-item-group style="margin-top: 30%;">
     <ion-item style="margin-bottom: 20px;" lines="none">
       <ion-thumbnail style="margin-left: auto; margin-right: auto; width: 150px; height: 150px;">
-        <ion-img src="https://lh3.googleusercontent.com/proxy/t1EIf9rf7WI5nLChylK5acW3TgS3544DNodIDmbBss7TdhQqlp7wH1r4ufC66uFRz5-t0zXRTDTkh9mpIkG2Q0U"></ion-img>
+        <ion-img src="https://i.pinimg.com/originals/72/a2/02/72a2027b417410f1381ce25d3190bff7.png"></ion-img>
       </ion-thumbnail>
+    </ion-item>
+    <ion-item lines="none">
+     <div style="margin-right: auto; margin-left: auto;">
+      <label style="color: red; font-size: 95%;" *ngIf="error">Usuario o Clave invalido</label>
+     </div>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Nombre de usuario</ion-label>
-      <ion-input placeholder="Nombre de usuario o correo"></ion-input>
+      <ion-input placeholder="Nombre de usuario o correo" [(ngModel)]="username"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Contrasena</ion-label>
-      <ion-input type="password" placeholder="Introduzca su contrasena"></ion-input>
+      <ion-input type="password" placeholder="Introduzca su contrasena"[(ngModel)]="password"></ion-input>
     </ion-item>
   </ion-item-group>
   <ion-item-group style="margin-top: 40px;">
-    <ion-button expand="full" [routerLink]="['/tabs','tab2']">
+    <ion-button expand="full" (click)="onLogin()">
       Iniciar Sesion
     </ion-button>
     <ion-button expand="full" color="success">
